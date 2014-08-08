@@ -1,0 +1,7 @@
+.row.well
+  .col-sm-12
+    %h2= "(#{visit.id})"
+    %p
+      = l visit.date
+      = visit.ora
+    = render 'visits/testi_visita', visit: visit

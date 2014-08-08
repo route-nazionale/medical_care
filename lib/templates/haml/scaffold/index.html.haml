@@ -1,0 +1,24 @@
+%h1 Elenco <%= plural_table_name %>
+%table.table
+  %thead
+    %tr
+<% for attribute in attributes -%>
+      %th <%= attribute.human_name %>
+<% end -%>
+      %th
+  %tbody
+    - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+      %tr
+<% for attribute in attributes -%>
+        %td= <%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+        %td
+          = link_to 'S', <%= singular_table_name %>
+          |
+          = link_to 'E', edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
+          |
+          = link_to 'D', <%= singular_table_name %>, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+%br
+  = link_to 'Aggiungi <%= human_name %>', new_<%= singular_table_name %>_path

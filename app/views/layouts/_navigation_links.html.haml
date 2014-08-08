@@ -1,0 +1,18 @@
+%ul.nav.navbar-nav
+  -if current_user
+    %li= link_to "Elenco persone", [Human]
+    %li= link_to "Elenco Visite", [Visit]
+    
+%ul.nav.navbar-nav
+  -if current_user
+    %li= link_to "Elenco MAgazzino (disabilitato)", "#"
+
+
+
+%ul.nav.navbar-right
+  %li
+    -if current_user
+      = link_to "Logout #{current_user} -- #{current_location}", log_out_path
+    -else
+      = link_to 'Login', log_in_path
+    

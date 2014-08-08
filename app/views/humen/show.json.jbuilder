@@ -1,0 +1,1 @@
+json.extract! @human, :id, :cu, :cucode, :nome, :cognome, :quartiere, :contrada, :codicecensimento, :idgruppo, :idunita, :realcredit, :intolleranzealimentari, :allergiealimentari, :allergiefarmaci, :fisiche, :lis, :psichiche, :sensoriali, :patologie, :created_at, :updated_at

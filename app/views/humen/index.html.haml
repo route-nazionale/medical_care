@@ -1,0 +1,31 @@
+%h1 Elenco
+
+= render 'search_form'
+
+%table.table
+  %thead
+    %tr
+      %th Cu
+      %th Nome
+      %th Cognome
+      %th Abitazione
+      %th Codicecensimento
+      %th Gruppo
+      %th Realcredit
+      %th
+  %tbody
+  - @humen.each do |human|
+    %tr
+      %td
+        = link_to human.cu, human, class: "btn btn-default"
+      %td= human.nome
+      %td= human.cognome
+      %td= human.abitazione
+      %td= human.codicecensimento
+      %td= human.codice_gruppo
+      %td= human.realcredit
+      %td= link_to 'E', edit_human_path(human)
+        
+%br
+
+= link_to 'New Human', new_human_path

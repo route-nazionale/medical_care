@@ -1,0 +1,18 @@
+- if personal = @human.personal_info
+  %h4 
+    Annotazioni personali: 
+    = link_to 'Modifica', [:edit, @human, personal ], class: 'btn btn-small btn-default'
+
+  %p 
+    Tessera Sanitaria: 
+    %span.label.label-default #{@human.tessera_sanitaria.upcase}
+  .well
+    = simple_format @human.annotazioni_mediche || "Nessuna"
+-else
+  %h4 
+    Annotazioni personali: 
+    = link_to 'Aggiungi', [:new, @human, :personal_info ]
+
+  %p Tessera Sanitaria: #{@human.tessera_sanitaria}
+  .well
+    = simple_format "Nessuna"

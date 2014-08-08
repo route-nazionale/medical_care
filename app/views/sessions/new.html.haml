@@ -1,0 +1,13 @@
+%h1 Benvenuto
+
+= simple_form_for(sessions_path, html: {class: 'form-horizontal' }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :location, label: "Posto Medico", as: :radio_buttons, collection: @locations
+    = f.input :cu, label: 'codice badge'
+    = f.input :password
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.button :submit
+

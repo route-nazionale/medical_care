@@ -1,0 +1,9 @@
+%h1 
+  Modifica visita 
+  =link_to @visit.human, @visit.human
+
+= render 'form'
+
+= link_to 'Show', [@human, @visit]
+\|
+= link_to 'Back', [@human, :visits]

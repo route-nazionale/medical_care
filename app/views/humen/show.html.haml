@@ -1,0 +1,59 @@
+
+
+.row
+  .col-sm-6
+    %h1 
+      = @human.nome
+      = @human.cognome
+      = link_to 'Elenco persone', humen_path, class: "btn btn-lg btn-default"
+
+    %h3
+      = @human.cu
+    .well
+      .row
+        .col-sm-6
+
+          %p
+            Abitazione
+            %b= @human.abitazione
+          %p
+            Codice censimento
+            %b= @human.codicecensimento
+        .col-sm-6
+
+          %p 
+            Gruppo
+            %b= @human.codice_gruppo
+
+          %p reale: #{@human.realcredit ? 'si' : 'no'}
+      
+    = render "dati_personal_info"
+
+    %p
+      = link_to 'Nuova visita', [:new, @human, :visit], class: "btn btn-lg btn-primary"
+
+
+  .col-sm-6
+    = render 'table_scheda'
+
+
+.row
+  .col-sm-6
+    %h2 Ultima Visita
+
+    - if @human.ultima_visita
+      = render 'visits/visit_single', visit: @human.ultima_visita
+    -else
+      %p Nessuna visita finora
+  
+  .col-sm-6
+    %h2= link_to 'Visite precedenti', [@human, Visit]
+
+    %ul
+      -@human.visits.ordinate_indietro.each do |visit|
+        %li
+          =link_to [@human, visit] do
+            = visit.id
+            = "--"
+            = visit.date 
+            = visit.ora 

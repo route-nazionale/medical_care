@@ -1,0 +1,31 @@
+%h1 Elenco visite #{@human}
+%table.table
+  %thead
+    %tr
+      %th id
+      %th Paziente
+      %th Punto
+      %th Data / ora
+      %th Operatore
+      %th Triage
+      %th
+  %tbody
+    - @visits.each do |visit|
+      %tr
+        %td= link_to visit.id, [visit.human, visit], class: "btn btn-primary"
+        %td= link_to visit.human, visit.human, class: "btn btn-default"
+        %td= visit.location
+        %td
+          = l(visit.date)
+          \/
+          = visit.ora
+        %td= visit.operatore
+        %td= visit.triage
+        %td
+          = link_to 'E', [:edit, visit.human, visit]
+          |
+          = link_to 'D', visit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+%br
+  = link_to "Aggiungi Visita a #{@human}", [:new, @human, :visit] if @human

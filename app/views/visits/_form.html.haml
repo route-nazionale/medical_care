@@ -1,0 +1,14 @@
+= simple_form_for([@human, @visit], html: {class: 'form-horizontal' }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :triage, as: :radio_buttons, collection: Visit.el_triage
+    = f.input :anamnesi, :input_html => { rows: 5 }
+    = f.input :diagnosi, :input_html => { rows: 5 }
+    = f.input :terapia, :input_html => { rows: 5 }
+    = f.input :osservazione
+  
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.button :submit
+

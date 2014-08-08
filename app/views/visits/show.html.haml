@@ -1,0 +1,42 @@
+.row
+  .col-sm-12
+.row
+  .col-sm-8
+    %h1 
+      Visita #{@visit.id}
+    %h2
+      = link_to @visit.human, [@visit.human, Visit]
+    %p
+      = @visit.tessera_sanitaria 
+  .col-sm-2
+    .well
+      %p
+        Punto medico
+      %p
+        %b= @visit.location
+  .col-sm-2
+    .well
+      %p 
+        Operatore
+        %br
+        %b= @visit.operatore
+      %p
+        = l(@visit.date)
+      %p
+        = @visit.ora
+%hr
+.row
+  .col-sm-12
+
+    = render 'testi_visita', visit: @visit
+%hr
+.row
+  .col-sm-8
+  .col-sm-4
+    %h3 Timbro e firma
+
+-if @visit.modificabile?
+  .btn.btn-default
+    =link_to 'modifica', [:edit, @visit]
+.btn.btn-default
+  =link_to 'stamopa', [@visit]

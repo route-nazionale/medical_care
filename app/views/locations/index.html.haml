@@ -1,0 +1,22 @@
+%h1 Elenco locations
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Telephone
+      %th
+  %tbody
+    - @locations.each do |location|
+      %tr
+        %td= location.name
+        %td= location.telephone
+        %td
+          = link_to 'S', location
+          |
+          = link_to 'E', edit_location_path(location)
+          |
+          = link_to 'D', location, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+%br
+  = link_to 'Aggiungi Location', new_location_path

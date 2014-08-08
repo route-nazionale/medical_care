@@ -1,0 +1,10 @@
+= simple_form_for([@human, @personal_info], html: {class: 'form-horizontal' }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :tessera_sanitaria
+    = f.input :annotazioni_mediche, :input_html => { rows: 5 }
+  
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.button :submit

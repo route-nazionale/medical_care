@@ -1,0 +1,13 @@
+
+= search_form_for @q, class: 'form-inline' do |f| 
+
+  .form-group
+    = f.search_field :cu_cont, placeholder: :codice
+  .form-group
+    = f.search_field :nome_cont, placeholder: 'nome'
+  .form-group
+    = f.search_field :cognome_cont, placeholder: 'cognome'
+  = f.submit 
+  = link_to 'Completo', humen_path(force_search:'true')
+
+%p
